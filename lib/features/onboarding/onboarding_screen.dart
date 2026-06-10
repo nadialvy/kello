@@ -29,8 +29,9 @@ class OnboardingScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const SizedBox(height: 8),
+              const SizedBox(height:12),
               OnboardingTopBar(onMasukTap: () => _goToLogin(context)),
+              const SizedBox(height: 12),
               const Text(
                 'Pahami emosi si kecil\nlewat seninya',
                 style: TextStyle(

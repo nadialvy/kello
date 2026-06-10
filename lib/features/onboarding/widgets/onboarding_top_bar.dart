@@ -15,7 +15,7 @@ class OnboardingTopBar extends StatelessWidget {
         const SizedBox(width: 24),
         Image.asset(
           'assets/images/logo.png',
-          height: 72,
+          height: 32,
         ),
         GestureDetector(
           onTap: onMasukTap,
