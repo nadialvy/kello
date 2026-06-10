@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'screens/splash_screen.dart';
+import 'screens/onboarding_screen.dart';
 
 void main() {
   runApp(const KelloApp());
@@ -17,8 +17,9 @@ class KelloApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        fontFamily: 'PlusJakartaSans',
       ),
-      home: const SplashScreen(),
+      home: const OnboardingScreen(),
     );
   }
 }
