@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../shared/theme/app_colors.dart';
+import '../../shared/widgets/app_text_field.dart';
 import '../../shared/widgets/primary_button.dart';
+import 'sign_up/sign_up_step1_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -30,6 +32,8 @@ class _LoginPageState extends State<LoginPage> {
                   'assets/images/logo.png',
                   height: 64,
                 ),
+
+                
               ),
               const Text(
                 'Selamat datang kembali!',
@@ -53,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 32),
               const _FieldLabel('Alamat Email'),
               const SizedBox(height: 8),
-              const _AppTextField(hintText: 'nama@email.com'),
+              const AppTextField(hintText: 'nama@email.com'),
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -73,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
               const SizedBox(height: 8),
-              _AppTextField(
+              AppTextField(
                 hintText: '••••••••',
                 obscureText: _obscurePassword,
                 suffixIcon: GestureDetector(
@@ -110,7 +114,11 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const SignUpStep1Page(),
+                      ),
+                    ),
                     child: const Text(
                       'Daftar sekarang',
                       style: TextStyle(
@@ -144,52 +152,6 @@ class _FieldLabel extends StatelessWidget {
         fontSize: 14,
         fontWeight: FontWeight.w700,
         color: AppColors.darkText,
-      ),
-    );
-  }
-}
-
-class _AppTextField extends StatelessWidget {
-  const _AppTextField({
-    required this.hintText,
-    this.obscureText = false,
-    this.suffixIcon,
-  });
-
-  final String hintText;
-  final bool obscureText;
-  final Widget? suffixIcon;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      obscureText: obscureText,
-      style: const TextStyle(
-        fontSize: 14,
-        color: AppColors.darkText,
-      ),
-      decoration: InputDecoration(
-        hintText: hintText,
-        hintStyle: const TextStyle(
-          fontSize: 14,
-          color: Color(0xFFB5B5B5),
-        ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-        suffixIcon: suffixIcon == null
-            ? null
-            : Padding(
-                padding: const EdgeInsets.only(right: 14),
-                child: suffixIcon,
-              ),
-        suffixIconConstraints: const BoxConstraints(minWidth: 0, minHeight: 0),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(28),
-          borderSide: const BorderSide(color: Color(0xFFF1C5C9)),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(28),
-          borderSide: const BorderSide(color: AppColors.primaryRed, width: 1.5),
-        ),
       ),
     );
   }

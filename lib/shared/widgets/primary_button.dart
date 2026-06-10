@@ -8,11 +8,13 @@ class PrimaryButton extends StatelessWidget {
     required this.label,
     required this.onPressed,
     this.labelStyle,
+    this.trailingIcon,
   });
 
   final String label;
   final VoidCallback onPressed;
   final TextStyle? labelStyle;
+  final IconData? trailingIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,16 @@ class PrimaryButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(28),
           ),
         ),
-        child: Text(label, style: effectiveStyle),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(label, style: effectiveStyle),
+            if (trailingIcon != null) ...[
+              const SizedBox(width: 8),
+              Icon(trailingIcon, size: 18, color: Colors.white),
+            ],
+          ],
+        ),
       ),
     );
   }
