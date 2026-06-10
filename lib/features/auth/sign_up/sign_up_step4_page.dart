@@ -5,6 +5,7 @@ import '../../../shared/theme/app_colors.dart';
 import '../../../shared/widgets/app_text_field.dart';
 import '../../../shared/widgets/dashed_box.dart';
 import '../../../shared/widgets/primary_button.dart';
+import '../../dashboard/dashboard_page.dart';
 import 'widgets/sign_up_header.dart';
 import 'widgets/step_badge.dart';
 import 'widgets/step_progress.dart';
@@ -107,8 +108,10 @@ class _SignUpStep4PageState extends State<SignUpStep4Page> {
                 fontSize: 14,
                 fontWeight: FontWeight.w700,
               ),
-              onPressed: () =>
-                  Navigator.of(context).popUntil((r) => r.isFirst),
+              onPressed: () => Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (_) => const DashboardPage()),
+                (_) => false,
+              ),
             ),
           ),
         ],

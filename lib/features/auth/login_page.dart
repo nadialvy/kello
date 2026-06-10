@@ -4,6 +4,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 import '../../shared/theme/app_colors.dart';
 import '../../shared/widgets/app_text_field.dart';
 import '../../shared/widgets/primary_button.dart';
+import '../dashboard/dashboard_page.dart';
 import 'sign_up/sign_up_step1_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -96,7 +97,14 @@ class _LoginPageState extends State<LoginPage> {
                   fontSize: 14,
                   fontWeight: FontWeight.w700,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  FocusScope.of(context).unfocus();
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (_) => const DashboardPage(),
+                    ),
+                  );
+                },
               ),
               const SizedBox(height: 24),
               const _OrDivider(),
