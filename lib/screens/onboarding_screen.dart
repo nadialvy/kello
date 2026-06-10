@@ -47,7 +47,7 @@ class OnboardingScreen extends StatelessWidget {
                   height: 1.5,
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 32),
                 _PrimaryButton(
                   label: 'Daftar Sekarang',
                   labelStyle: const TextStyle(fontSize: 12, fontWeight: FontWeight.w800),
@@ -59,7 +59,7 @@ class OnboardingScreen extends StatelessWidget {
                 labelStyle: const TextStyle(fontSize: 12, fontWeight: FontWeight.w800),
                 onPressed: () => _goToLogin(context),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 40),
               ClipRRect(
                 borderRadius: BorderRadius.circular(16),
                 child: Image.asset(
@@ -80,7 +80,7 @@ class OnboardingScreen extends StatelessWidget {
               const _FeatureCard(
                 icon: LucideIcons.lightbulb,
                 iconColor: Color(0xFFE89B3C),
-                background: Color(0xFFFFF1E2),
+                background: Color(0xFFFFF9EC),
                 title: 'Pahami Emosi',
                 description:
                     'Dapatkan laporan mendalam tentang kondisi psikologis anak berdasarkan pilihan warna dan bentuk.',
@@ -89,7 +89,7 @@ class OnboardingScreen extends StatelessWidget {
               const _FeatureCard(
                 icon: LucideIcons.shoppingBag,
                 iconColor: Color(0xFFB58B5B),
-                background: Color(0xFFF6EEDF),
+                background: Color(0xFFF0FAF5),
                 title: 'Shop Your Art',
                 description:
                     'Ubah karya seni anak menjadi merchandise eksklusif seperti kaos, mug, atau kanvas premium.',
