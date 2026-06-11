@@ -3,6 +3,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../shared/theme/app_colors.dart';
 import '../../../shared/widgets/primary_button.dart';
+import 'artwork_upload_page.dart';
 import 'widgets/choice_pill.dart';
 import 'widgets/info_note.dart';
 import 'widgets/intake_text_field.dart';
@@ -198,7 +199,13 @@ class _BehaviorContextPageState extends State<BehaviorContextPage> {
               child: PrimaryButton(
                 label: 'Lanjut',
                 trailingIcon: LucideIcons.arrowRight,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => const ArtworkUploadPage(),
+                    ),
+                  );
+                },
               ),
             ),
           ],
