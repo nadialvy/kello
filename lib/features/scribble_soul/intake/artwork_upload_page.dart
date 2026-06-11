@@ -3,6 +3,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../shared/theme/app_colors.dart';
 import '../../../shared/widgets/primary_button.dart';
+import 'concerns_page.dart';
 import 'widgets/icon_choice_pill.dart';
 import 'widgets/step_progress.dart';
 import 'widgets/upload_slot.dart';
@@ -189,7 +190,13 @@ class _ArtworkUploadPageState extends State<ArtworkUploadPage> {
               padding: const EdgeInsets.fromLTRB(20, 8, 20, 20),
               child: PrimaryButton(
                 label: 'Lanjut',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => const ConcernsPage(),
+                    ),
+                  );
+                },
               ),
             ),
           ],
