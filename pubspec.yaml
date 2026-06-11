@@ -23,6 +23,7 @@ flutter:
   assets:
     - assets/images/
     - assets/images/dashboard/
+    - assets/images/scribble-soul/
     - assets/icons/
 
   fonts:

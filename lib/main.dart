@@ -19,6 +19,17 @@ class KelloApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'PlusJakartaSans',
       ),
+      builder: (context, child) {
+        return ColoredBox(
+          color: const Color(0xFFEDEDED),
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 430),
+              child: ClipRect(child: child),
+            ),
+          ),
+        );
+      },
       home: const OnboardingScreen(),
     );
   }

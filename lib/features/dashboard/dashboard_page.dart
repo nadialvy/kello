@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../shared/theme/app_colors.dart';
+import '../scribble_soul/scribble_soul_page.dart';
 import 'widgets/beranda_view.dart';
 import 'widgets/dashboard_app_bar.dart';
 
@@ -14,6 +15,20 @@ class DashboardPage extends StatefulWidget {
 
 class _DashboardPageState extends State<DashboardPage> {
   int _currentIndex = 0;
+
+  Future<void> _onTabTap(int index) async {
+    if (index == 1) {
+      final result = await Navigator.of(context).push<int>(
+        MaterialPageRoute(builder: (_) => const ScribbleSoulPage()),
+      );
+      if (!mounted) return;
+      if (result != null && result != 1) {
+        setState(() => _currentIndex = result);
+      }
+      return;
+    }
+    setState(() => _currentIndex = index);
+  }
 
   static const _tabs = <_TabSpec>[
     _TabSpec(label: 'Beranda', icon: LucideIcons.house),
@@ -45,7 +60,7 @@ class _DashboardPageState extends State<DashboardPage> {
       bottomNavigationBar: _BottomNav(
         tabs: _tabs,
         currentIndex: _currentIndex,
-        onTap: (i) => setState(() => _currentIndex = i),
+        onTap: _onTabTap,
       ),
     );
   }
