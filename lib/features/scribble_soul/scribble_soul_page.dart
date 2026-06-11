@@ -3,6 +3,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../shared/theme/app_colors.dart';
 import '../../shared/widgets/primary_button.dart';
+import 'intake/child_identity_page.dart';
 import 'widgets/benefit_row.dart';
 import 'widgets/child_profile_chip.dart';
 
@@ -108,7 +109,15 @@ class _ScribbleSoulPageState extends State<ScribbleSoulPage> {
                   const SizedBox(height: 28),
                   PrimaryButton(
                     label: 'Mulai untuk $selectedName',
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => ChildIdentityPage(
+                            initialName: selectedName,
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
