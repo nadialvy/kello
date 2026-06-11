@@ -8,6 +8,59 @@ import 'psychologist_card.dart';
 import 'quick_action_tile.dart';
 import 'section_header.dart';
 
+class _ForYouItem {
+  const _ForYouItem({
+    required this.imageAsset,
+    required this.imagePlaceholderColor,
+    required this.category,
+    required this.categoryColor,
+    required this.title,
+    required this.description,
+  });
+
+  final String imageAsset;
+  final Color imagePlaceholderColor;
+  final String category;
+  final Color categoryColor;
+  final String title;
+  final String description;
+}
+
+const List<_ForYouItem> _forYouItems = [
+  _ForYouItem(
+    imageAsset: 'assets/images/dashboard/activity_warna_emosi.png',
+    imagePlaceholderColor: Color(0xFF2A3142),
+    category: 'Aktivitas',
+    categoryColor: AppColors.primaryRed,
+    title: 'Mengenal Warna Emosi',
+    description: 'Ekspresikan perasaanmu lewat…',
+  ),
+  _ForYouItem(
+    imageAsset: 'assets/images/dashboard/activity_meditasi.png',
+    imagePlaceholderColor: Color(0xFFEDE7DA),
+    category: 'Meditasi',
+    categoryColor: Color(0xFFB58B5B),
+    title: 'Tarik Napas',
+    description: 'Relaksasi sejenak…',
+  ),
+  _ForYouItem(
+    imageAsset: 'assets/images/dashboard/activity_journaling.png',
+    imagePlaceholderColor: Color(0xFFE7EEFB),
+    category: 'Journaling',
+    categoryColor: Color(0xFF4A8AF4),
+    title: 'Tulis Cerita Hari Ini',
+    description: 'Ceritakan momen spesialmu…',
+  ),
+  _ForYouItem(
+    imageAsset: 'assets/images/dashboard/activity_musik.png',
+    imagePlaceholderColor: Color(0xFFFCE4E6),
+    category: 'Musik',
+    categoryColor: Color(0xFFB42230),
+    title: 'Dengarkan Lagu Tenang',
+    description: 'Pilih playlist favoritmu…',
+  ),
+];
+
 class BerandaView extends StatelessWidget {
   const BerandaView({super.key, required this.userName});
 
@@ -79,28 +132,17 @@ class BerandaView extends StatelessWidget {
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               padding: EdgeInsets.zero,
-              itemCount: 2,
+              itemCount: _forYouItems.length,
               separatorBuilder: (_, _) => const SizedBox(width: 12),
               itemBuilder: (_, i) {
-                if (i == 0) {
-                  return const ActivityCard(
-                    imageAsset:
-                        'assets/images/dashboard/activity_warna_emosi.png',
-                    imagePlaceholderColor: Color(0xFF2A3142),
-                    category: 'Aktivitas',
-                    categoryColor: AppColors.primaryRed,
-                    title: 'Mengenal Warna Emosi',
-                    description: 'Ekspresikan perasaanmu lewat…',
-                  );
-                }
-                return const ActivityCard(
-                  imageAsset:
-                      'assets/images/dashboard/activity_meditasi.png',
-                  imagePlaceholderColor: Color(0xFFEDE7DA),
-                  category: 'Meditasi',
-                  categoryColor: Color(0xFFB58B5B),
-                  title: 'Tarik Napas',
-                  description: 'Relaksasi sejenak…',
+                final item = _forYouItems[i];
+                return ActivityCard(
+                  imageAsset: item.imageAsset,
+                  imagePlaceholderColor: item.imagePlaceholderColor,
+                  category: item.category,
+                  categoryColor: item.categoryColor,
+                  title: item.title,
+                  description: item.description,
                 );
               },
             ),

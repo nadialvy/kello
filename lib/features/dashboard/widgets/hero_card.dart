@@ -12,23 +12,23 @@ class HeroCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       padding: const EdgeInsets.fromLTRB(18, 16, 18, 18),
       decoration: BoxDecoration(
-        color: const Color(0xFFFCEDD9),
+        color: const Color(0xFFFEF5F1),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: const Color(0xFFE89149), width: 1.2),
       ),
       child: Stack(
+        clipBehavior: Clip.hardEdge,
         children: [
           Positioned(
-            right: -10,
-            bottom: -10,
-            top: -10,
-            child: Image.asset(
-              'assets/images/dashboard/hero_decoration.png',
-              width: 130,
-              fit: BoxFit.contain,
-              errorBuilder: (_, _, _) => const SizedBox.shrink(),
+            right: -24,
+            bottom: -28,
+            child: Icon(
+              LucideIcons.brush,
+              size: 160,
+              color: const Color(0xFFE89149).withValues(alpha: 0.18),
             ),
           ),
           Column(
@@ -38,7 +38,7 @@ class HeroCard extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFE89149),
+                  color: const Color(0xFFFBD4A8),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: const Text(
@@ -46,7 +46,7 @@ class HeroCard extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w700,
-                    color: Colors.white,
+                    color: AppColors.darkText,
                   ),
                 ),
               ),
